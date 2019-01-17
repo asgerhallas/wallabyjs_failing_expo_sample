@@ -2,7 +2,7 @@ module.exports = function(wallaby) {
     const testPathExp = 'src/**/__tests__/*.{js,jsx}';
 
     return {
-        files: ['tsconfig.json', 'src/**/*.+(js|jsx|ts|tsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)', `!${testPathExp}`],
+        files: ['babel.config.js', 'tsconfig.json', 'src/**/*.+(js|jsx|ts|tsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)', `!${testPathExp}`],
 
         tests: [testPathExp],
 
@@ -12,7 +12,7 @@ module.exports = function(wallaby) {
         },
 
         compilers: {
-            '**/*.js?(x)': wallaby.compilers.babel({ plugins: ['@babel/plugin-proposal-class-properties'] })
+            '**/*.js?(x)': wallaby.compilers.babel()
         },
 
         testFramework: 'jest'
